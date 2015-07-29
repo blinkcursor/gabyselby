@@ -12,7 +12,7 @@
 /* Typography
    ========================================================================== */
 body {
-  font-family: serif; }
+  font-family: "PT Serif", serif; }
 
 /* UI tweaks
    ========================================================================== */
@@ -729,7 +729,7 @@ img[height] {
   */
 .panel--responsive {
   padding: 6px; }
-  @media screen and (min-width: 360px) {
+  @media screen and (min-width: 420px) {
     .panel--responsive {
       padding: 12px; } }
   @media screen and (min-width: 768px) {
@@ -1098,6 +1098,91 @@ body {
   width: 100%;
   /* [4] */ }
 
+/**
+ * Layouts with tiny gutters.
+ */
+.layout--tiny {
+  margin-left: -6px; }
+  .layout--tiny > .layout__item {
+    padding-left: 6px; }
+
+/**
+ * Layouts with small gutters.
+ */
+.layout--small {
+  margin-left: -12px; }
+  .layout--small > .layout__item {
+    padding-left: 12px; }
+
+/**
+ * Layouts with large gutters.
+ */
+.layout--large {
+  margin-left: -48px; }
+  .layout--large > .layout__item {
+    padding-left: 48px; }
+
+/**
+ * Layouts with huge gutters.
+ */
+.layout--huge {
+  margin-left: -96px; }
+  .layout--huge > .layout__item {
+    padding-left: 96px; }
+
+/**
+ * Layouts with no gutters.
+ */
+.layout--flush {
+  margin-left: 0; }
+  .layout--flush > .layout__item {
+    padding-left: 0; }
+
+/**
+ * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
+ * markup will display in order 4, 3, 2, 1 on your page.
+ */
+.layout--rev {
+  direction: rtl;
+  text-align: left; }
+  .layout--rev > .layout__item {
+    direction: ltr;
+    text-align: left; }
+
+/**
+ * Align layout items to the vertical centers of each other.
+ */
+.layout--middle > .layout__item {
+  vertical-align: middle; }
+
+/**
+ * Align layout items to the vertical bottoms of each other.
+ */
+.layout--bottom > .layout__item {
+  vertical-align: bottom; }
+
+/**
+ * Make the layout items fill up from the right hand side.
+ */
+.layout--right {
+  text-align: right; }
+  .layout--right > .layout__item {
+    text-align: left; }
+
+/**
+ * Make the layout items fill up from the center outward.
+ */
+.layout--center {
+  text-align: center; }
+  .layout--center > .layout__item {
+    text-align: left; }
+
+/**
+ * Cause layout items to take up a non-explicit amount of width.
+ */
+.layout--auto > .layout__item {
+  width: auto; }
+
 /*------------------------------------*\
     #WIDTHS
 \*------------------------------------*/
@@ -1147,7 +1232,7 @@ body {
 /**
  * Responsive width classes based on your responsive settings.
  */
-@media screen and (max-width: 359px) {
+@media screen and (max-width: 419px) {
   .u-1\/1-mq-xs {
     width: 100% !important; }
 
@@ -1312,7 +1397,7 @@ body {
 
   .u-4\/5-mq-xl {
     width: 80% !important; } }
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 420px) {
   .u-1\/1-mq-sm-up {
     width: 100% !important; }
 
@@ -1925,7 +2010,7 @@ li > ol {
   max-width: 88%;
   margin-left: auto;
   margin-right: auto; }
-  @media screen and (max-width: 359px) {
+  @media screen and (max-width: 419px) {
     .corset {
       max-width: 90%;
       max-width: calc( 100% - 2rem ); } }
@@ -2153,20 +2238,26 @@ a:hover {
 
 .header__logo {
   position: absolute; }
-  @media screen and (max-width: 359px) {
+  @media screen and (max-width: 419px) {
     .header__logo {
       position: static;
       text-align: center; } }
 
 .header__nav {
   display: block;
-  text-align: center; }
+  text-align: right; }
+  @media screen and (max-width: 419px) {
+    .header__nav {
+      text-align: center; } }
+  @media screen and (min-width: 768px) {
+    .header__nav {
+      text-align: center; } }
 
-@media screen and (max-width: 359px) {
+@media screen and (max-width: 419px) {
   .nav > li {
     display: block; } }
 
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 420px) {
   .nav--slashed > li:after {
     content: "\00A0" "\2215" "\00A0"; }
   .nav--slashed > li:last-child:after {
@@ -2187,27 +2278,31 @@ footer {
   height: 0;
   padding-bottom: 100%;
   overflow: hidden;
-  -webkit-transition: opacity .3s ease-out;
-          transition: opacity .3s ease-out; }
+  -webkit-transition: all .2s ease-out;
+          transition: all .2s ease-out; }
 
 .card:hover .card__img {
-  opacity: 0.7; }
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05); }
 
+/*
 .card__img > a > img {
-  max-width: none;
-  position: absolute;
-  top: -9999px;
-  right: -9999px;
-  bottom: -9999px;
-  left: -9999px;
-  margin: auto; }
-
+	max-width: none; //override inuit
+	position: absolute;
+	top: -9999px;
+	right: -9999px;
+	bottom: -9999px;
+	left: -9999px;
+	margin: auto;
+}
 .card__img--landscape {
-  max-height: 100%; }
-
+	max-height: 100%;
+}
 .card__img--portrait {
-  max-width: 100%; }
-
+	max-width: 100%;
+}
+*/
 /*
 .card__img--landscape {
   position: relative;
