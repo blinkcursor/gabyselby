@@ -18,12 +18,6 @@
                 font-family: 'PT Serif', serif;
                 font-weight: 400;
             }
-
-            footer, .project { font-family: sans-serif; }
-            .fonts-loaded footer, .fonts-loaded .project {
-                font-family: 'Lato', sans-serif;
-                font-weight: 400;
-            }
         </style>
 
     </head>
@@ -53,7 +47,7 @@
 
                     <li class="layout__item u-1/1 u-1/3-mq-sm-up u-1/4-mq-md-up">
                         <div class="">
-                            <h3>Cádiz Carnival</h3>
+                            <h4>Cádiz Carnival</h4>
                             <p class="zeta">Personal project inspired by the chaos and madness of Cádiz carnival in Spain.</p>
                         </div>
 
@@ -106,12 +100,8 @@
                 weight: 400
             });
 
-            var fontB = new w.FontFaceObserver( "Lato", {
-                weight: 400
-            });
-
             w.Promise
-                .all([fontA.check(), fontB.check()])
+                .all([fontA.check()])
                 .then(function(){
                     w.document.documentElement.className += " fonts-loaded";
                 });
